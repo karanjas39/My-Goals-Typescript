@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
-import { GoalType } from "../../App";
+import { type FormEvent, useRef, useState } from "react";
+import { type GoalType } from "../../App";
 
 type AddGoalType = {
   onAddGoal: (goal: GoalType) => void;
@@ -10,7 +10,7 @@ export default function NewGoal({ onAddGoal }: AddGoalType) {
   const [description, setDescription] = useState<string>("");
   const titleRef = useRef<HTMLInputElement>(null);
 
-  function handleNewGoalSubmit(e: any) {
+  function handleNewGoalSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!title || !description) return;
     const newGoal: GoalType = {
