@@ -12,6 +12,7 @@ export default function NewGoal({ onAddGoal }: AddGoalType) {
 
   function handleNewGoalSubmit(e: any) {
     e.preventDefault();
+    if (!title || !description) return;
     const newGoal: GoalType = {
       id: Math.random(),
       title,

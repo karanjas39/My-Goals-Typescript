@@ -25,6 +25,7 @@ export default function App() {
   }, []);
 
   function handleAddGoal(newGoal: GoalType) {
+    if (!newGoal.title || !newGoal.description) return;
     setGoals((prevGoals) => [...prevGoals, newGoal]);
     localStorage.setItem("goals", JSON.stringify([...goals, newGoal]));
   }
